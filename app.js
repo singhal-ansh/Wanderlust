@@ -13,7 +13,6 @@ const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
-// const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
 const MONGO_URL = process.env.ATLASDB_URL;
 const ejsMate = require("ejs-mate")
 
@@ -45,7 +44,7 @@ const store = MongoStore.create({
   mongoUrl: MONGO_URL,
   touchAfter: 24 * 60 * 60, // time period in seconds
   crypto: {
-    secret: "mysupersecretcode"
+    secret: process.env.SESSION_SECRET
   },
   touchAfter: 24 * 60 * 60 
 });
@@ -56,7 +55,7 @@ store.on("error", function(e) {
 
 const sessionOptions = {  
   store,
-  secret: "mysupersecretcode",
+  secret: process.env.SESSION_SECRET,
   resave: false,  
   saveUninitialized:true,
   cookie: {
