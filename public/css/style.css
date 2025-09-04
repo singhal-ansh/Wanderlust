@@ -1,29 +1,54 @@
-body{
+body {
     font-family: "Plus Jakarta Sans", sans-serif !important;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
-.container{
+
+.container {
     flex: 1;
 }
-.navbar{
+
+/* ---------------- NAVBAR ---------------- */
+.navbar {
     height: 5rem;
+    background-color: #fff;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
 }
+
 .fa-compass {
     color: #fe424d;
     font-size: 2rem;
 }
-.nav-link{
+
+.nav-link {
     color: #222222 !important;
+    font-weight: 500;
+    transition: color 0.2s ease-in-out;
 }
+
+.nav-link:hover {
+    color: #fe424d !important;
+}
+
+/* ---------------- FOOTER ---------------- */
+.f-info {
+    text-align: center;
+    height: 8rem;
+    background-color: #ebebeb;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;   /* ✅ fix alignment */
+    gap: 0.5rem;
+}
+
 .f-info-copyright {
     cursor: default;
     pointer-events: none;
 }
 
 .f-info-socials a {
-    /* Optional: Add hover effects for social icons */
     transition: opacity 0.2s;
     color: #222222;
     margin-right: 0.5rem;
@@ -32,71 +57,148 @@ body{
 .f-info-socials a:hover {
     opacity: 0.8;
 }
-.f-info-links a{
-     text-decoration: none;
-     color: #222222;
+
+.f-info-links a {
+    text-decoration: none;
+    color: #222222;
 }
-.f-info-links a:hover{
+
+.f-info-links a:hover {
     text-decoration: underline;
 }
-.f-info{
-    text-align: center;
-    height: 8rem;
-    background-color: #ebebeb;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: space-evenly;
-}
-.f-info-links, .f-info-socials{
+
+.f-info-links,
+.f-info-socials {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.f-info-socials{
+
+.f-info-socials {
     font-size: 1.5rem;
 }
-/* cards */
-.listing-card{
+
+/* ---------------- CARDS ---------------- */
+.listing-card {
     border: none !important;
     margin-bottom: 2rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
 }
-.card-img-top{
+
+.listing-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.card-img-top {
+    height: 16rem;
     border-radius: 1rem !important;
     width: 100% !important;
     object-fit: cover !important;
 }
-.card-body{
-    padding: 0 !important;
+
+.card-body {
+    padding: 0.8rem 1rem !important;
 }
-.card-text p{
+
+.card-text p {
     font-weight: 400 !important;
 }
-.listing-link{
+
+.listing-link {
     text-decoration: none;
 }
-.card-img-overlay{
+
+/* Overlay hover (subtle fade) */
+.card-img-overlay {
     opacity: 0;
+    transition: opacity 0.2s ease-in-out;
 }
-.card-img-overlay:hover{
-    opacity: 0.2;
+
+.card-img-overlay:hover {
+    opacity: 0.15;
     background-color: white;
 }
-/* Add Page */
-.add-btn,.edit-btn{
+
+/* ---------------- BUTTONS ---------------- */
+.add-btn, 
+.edit-btn, 
+.btn-search {
     background-color: #fe424d !important;
     border: none !important;
+    color: #fff !important;
+    border-radius: 2rem;
+    padding: 0.6rem 1.2rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease-in-out;
 }
-/*show page*/
-.show-img{
-    height: 30vh;
 
+.add-btn:hover, 
+.edit-btn:hover, 
+.btn-search:hover {
+    background-color: #e31c4f !important;
 }
-.btns{
+
+/* ---------------- SHOW PAGE ---------------- */
+.show-img {
+    height: 60vh;
+    border-radius: 1rem;
+    object-fit: cover;
+}
+
+.btns {
     display: flex;
+    gap: 0.5rem;
 }
-.show-card{
+
+.show-card {
     padding-left: 0;
     padding-right: 0;
+}
+
+/* Review cards - Airbnb style */
+.review-card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
+
+.review-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fe424d;
+  color: #fff;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.8rem;
+}
+
+.review-username {
+  margin: 0;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #222;
+}
+
+.review-comment {
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.5;
+  margin-bottom: 0.8rem;
 }

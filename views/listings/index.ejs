@@ -1,40 +1,53 @@
 <% layout("/layouts/boilerplate") %> 
 <style>
-    #filters {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 2rem;
-        margin: 1.5rem 0;
-        justify-content: center;
-    }
-    .filter {
-        text-align: center;
-        opacity: 0.7;
-        transition: opacity 0.2s ease-in-out;
-        margin-right: 20px;
-    }
-    .filter:hover {
-        opacity: 1;
-        cursor: pointer;
-    }
-    .filter i {
-        font-size: 1.5rem;
-        margin-bottom: 0.3rem;
-    }
-    .filter p {
-        font-size: 0.9rem;
-        margin: 0;
-    }
-    .tax-info{
-        display: none;
-    }
-    .tax-switch {
-        border: 1px solid black;
-        border-radius: 1rem;
-        padding: 1rem;
-        height: fit-content;
-        margin-left: 10px;
-    }   
+#filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+    justify-content: center;
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 1rem;
+}
+
+.filter {
+    text-align: center;
+    opacity: 0.7;
+    transition: all 0.2s ease-in-out;
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+}
+
+.filter:hover {
+    opacity: 1;
+    background-color: #f7f7f7;
+    cursor: pointer;
+    transform: translateY(-2px);
+}
+
+.filter i {
+    font-size: 1.4rem;
+    margin-bottom: 0.3rem;
+    color: #ff385c;
+}
+
+.filter p {
+    font-size: 0.85rem;
+    margin: 0;
+    font-weight: 500;
+}
+
+.tax-switch {
+    border: 1px solid #ddd;
+    border-radius: 1rem;
+    padding: 0.7rem 1.2rem;
+    height: fit-content;
+    margin-left: 10px;
+    font-size: 0.9rem;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
 </style>
 
 <div id="filters">

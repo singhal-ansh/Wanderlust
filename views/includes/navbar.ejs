@@ -1,51 +1,120 @@
 <style>
-  .btn-search {
-    background-color: #ff385c;
-    color: white;
-    border-radius: 25px;
-    padding: 0 1rem 0 1rem;
+  /* Navbar Styles */
+  .navbar {
+    background-color: white !important;
+    border-bottom: 1px solid #eaeaea;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   }
-  .btn-search:hover {
-    background-color: #e31c4f;
-    color: white;
+
+  .navbar-brand {
+    font-weight: 700;
+    color: #ff385c !important;
+    font-size: 1.5rem;
   }
-  .btn-search i {
-    margin-right: .5rem;
-    display: inline;
+
+  .search-bar {
+    display: flex;
+    align-items: center;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 40px;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
   }
-  .search-input {
-    border-radius: 25px;
-    padding: 0.5rem 3rem 0.5rem 3rem;
+
+  .search-bar input {
+    text-align: center;
+    /* centers placeholder + typed text */
+    font-size: 0.95rem;
+    padding: 0.5rem 1rem;
+    border-radius: 40px;
+  }
+
+
+  .search-bar:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  }
+
+  .search-bar span {
+    margin: 0 0.75rem;
     font-size: 0.9rem;
+    font-weight: 500;
+    color: #555;
+  }
+
+  .search-bar i {
+    color: #ff385c;
+    margin-left: auto;
+  }
+
+  .nav-link {
+    color: #333 !important;
+    font-weight: 500;
+    margin-left: 1rem;
+  }
+
+  .btn-host {
+    border: none;
+    background: transparent;
+    font-weight: 600;
+    margin-right: 1rem;
+    cursor: pointer;
+  }
+
+  .profile-btn {
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    padding: 0.4rem 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: white;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .profile-btn:hover {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   }
 </style>
 
-<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top" >
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/listings"><i class="fa-regular fa-compass"></i></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">   
-          <a class="nav-link" href="/listings">Explore</a>
-        </div>
+<nav class="navbar navbar-expand-md sticky-top">
+  <div class="container-fluid">
+    <!-- Logo -->
+    <a class="navbar-brand" href="/listings">
+      <i class="fa-solid fa-compass"></i> Wanderlust
+    </a>
 
-        <div class="navbar-nav ms-auto">
-          <form class="d-flex" role="search" method="GET" action="/listings">
-            <input class="form-control me-2 search-input" type="search" placeholder="Search Destinations" name="search" value="<%= typeof search !== 'undefined' ? search : '' %>">
-            <button class="btn btn-search" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
-          </form>
-        </div>
-        <div class="navbar-nav ms-auto">
-          <a class="nav-link" href="/listings/new">Airbnb your home</a>
-          <% if(!currentUser) {%>
-            <a class="nav-link" aria-current="page" href="/login"><b>Login</b></a>
-            <a class="nav-link" href="/signup"><b>Signup</b></a>
-          <% } if(currentUser) { %>
-            <a class="nav-link" href="/logout"><b>logout</b></a>
-          <% } %>
-        </div>
-      </div>
+    <!-- Search Bar (centered + functional) -->
+    <div class="mx-auto d-none d-md-flex">
+      <form class="search-bar" method="GET" action="/listings" style="width: 350px;">
+        <input type="text" class="form-control border-0 shadow-none" name="search" placeholder="Search destinations"
+          value="<%= typeof search !== 'undefined' ? search : '' %>"
+          style="font-size: 0.9rem; border-radius: 40px; padding-left: 1rem;">
+        <button type="submit" style="background: none; border: none; margin-left: auto;">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </form>
     </div>
-  </nav>
+
+
+    <!-- Right Side -->
+    <div class="d-flex align-items-center">
+      <button class="btn-host">Airbnb your home</button>
+
+      <% if(!currentUser) { %>
+        <a class="nav-link" href="/login">Login</a>
+        <a class="nav-link" href="/signup">Signup</a>
+        <% } else { %>
+          <a class="nav-link" href="/logout">Logout</a>
+          <% } %>
+
+            <button class="profile-btn ms-2">
+              <i class="fa-solid fa-bars"></i>
+              <i class="fa-solid fa-user-circle"></i>
+            </button>
+    </div>
+  </div>
+</nav>

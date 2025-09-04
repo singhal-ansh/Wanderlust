@@ -195,3 +195,31 @@
   -webkit-transition: background-position .7s;
   transition: background-position .7s;
 }
+
+.starability-result,
+.starability-slot {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Smooth hover effect on stars (when interactive) */
+.starability-slot > input:not([disabled]) + label {
+  transition: transform 0.2s ease-in-out;
+}
+
+.starability-slot > input:not([disabled]):hover + label {
+  transform: scale(1.15);
+  cursor: pointer;
+}
+
+/* Keep selected star slightly highlighted */
+.starability-slot > input:checked + label {
+  transform: scale(1.1);
+}
+
+/* Focus state for accessibility */
+.starability-slot > input:focus + label {
+  outline: none;
+  box-shadow: 0 0 0 2px #fe424d55;
+  border-radius: 50%;
+}
