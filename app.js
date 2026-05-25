@@ -59,7 +59,7 @@ const sessionOptions = {
   resave: false,  
   saveUninitialized:true,
   cookie: {
-    expries: Date.now() + 1000 * 60 * 60 * 24 * 7, // 1 week
+    expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7),
     maxAge: 1000 * 60 * 60 * 24 * 7, // 1 week
     httpOnly: true, 
   }
@@ -100,6 +100,7 @@ app.use((err, req, res, next) => {
   // res.status(statusCode).send(message);
 });
 
-app.listen(3000, () => {
-  console.log("Server is listening on port 3000");
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is listening on port ${PORT}`);
 });
