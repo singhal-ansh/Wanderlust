@@ -26,7 +26,8 @@ main()
     console.log("Connected to DB");
   })
   .catch((err) => {
-    console.log(err);
+    console.log("DB CONNECTION ERROR:", err); // 
+    process.exit(1);
   });
 
 async function main() {
